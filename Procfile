@@ -1,0 +1,1 @@
+web: gunicorn gps.wsgi --log-file -
