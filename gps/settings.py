@@ -110,14 +110,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "users.User"
 
 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ALLOWED_ORIGINS = [
-    "https://gpsreact-2314fbffe3e6.herokuapp.com/",  # Cambia esto a la URL real de tu frontend en Heroku
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://gpsreact-2314fbffe3e6.herokuapp.com/',  # Cambia esto a la URL real de tu frontend en Heroku
-]
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True  
 
 CSRF_COOKIE_SECURE = True
