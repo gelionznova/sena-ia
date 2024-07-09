@@ -11,7 +11,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'tu_valor_predeterminado')
 DEBUG = False
 
 # ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["gpsdjango-61ff97537fca.herokuapp.com"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
