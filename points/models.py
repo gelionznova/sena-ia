@@ -23,7 +23,7 @@ class Point(models.Model):
     address = models.CharField(max_length=100, blank=True, null=True, default="")
     pay_money = models.CharField(max_length=20, blank=True, null=True, default="")
     validate_ticket = models.CharField(max_length=20, blank=True, null=True, default="", unique=True)
-    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    created_at = models.DateTimeField()
 
     def __str__(self):
         return self.validate_ticket
