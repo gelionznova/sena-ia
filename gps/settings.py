@@ -1,6 +1,7 @@
 import os
 import datetime
 from pathlib import Path
+from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,6 +43,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
 
 ROOT_URLCONF = 'gps.urls'
 
@@ -115,6 +117,8 @@ CORS_ALLOW_CREDENTIALS = True
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # O utiliza otro backend según necesites
+
 
 SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": datetime.timedelta(days=120)}
 
