@@ -9,14 +9,14 @@ class PointSerializer(ModelSerializer):
         fields = [
             "id",
             "pack",
+            "salesperson",
             "first_name",
             "last_name",
             "id_number",
             "gender",
             "email",
             "phone_number",
-            "address",
-            
+            "address",            
             "pay_money",
             "validate_ticket",
             "created_at",                       
