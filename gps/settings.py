@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'gps.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': BASE_DIR / 'd77jgm2p889ebd',
-        'USER':'u3ahi7l4u99p88',
-        'PASSWORD':'p13bf6b6fb8b87cafaf21270ed7d3402641d560e923eafee69089743ef5d757d3',
-        'HOST':'cbec45869p4jbu.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
-        'PORT':'5432',
+        'NAME': 'd77jgm2p889ebd',
+        'USER': 'u3ahi7l4u99p88',
+        'PASSWORD': 'p13bf6b6fb8b87cafaf21270ed7d3402641d560e923eafee69089743ef5d757d3',
+        'HOST': 'cbec45869p4jbu.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
