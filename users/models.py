@@ -6,5 +6,5 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     last_activity = models.DateTimeField(default=timezone.now, null=True)
 
-    USERNAME_FIELD = "username"
+    USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
