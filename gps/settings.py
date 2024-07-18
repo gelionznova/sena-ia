@@ -65,10 +65,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'gps.wsgi.application'
 
 # BASE DE DATO SQLITE
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# BASE DE DATO post
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': BASE_DIR / 'd77jgm2p889ebd',
+        'USER':'u3ahi7l4u99p88',
+        'PASSWORD':'p13bf6b6fb8b87cafaf21270ed7d3402641d560e923eafee69089743ef5d757d3',
+        'HOST':'cbec45869p4jbu.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
+        'PORT':'5432',
     }
 }
 
@@ -126,3 +138,5 @@ os.makedirs(STATIC_ROOT, exist_ok=True)
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+DYNOSCALE_URL = "https://dynoscale.net/api/v1/report/mgmxzjaznwutntzimc00m"
