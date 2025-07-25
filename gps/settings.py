@@ -63,27 +63,27 @@ TEMPLATES = [
 WSGI_APPLICATION = 'gps.wsgi.application'
 
 # BASE DE DATO SQLITE
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
-        'NAME': 'meeting',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'CODE',  # O la dirección IP del servidor SQL
-        'PORT': '',       # Puerto por defecto para SQL Server
-        'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',  
-            'extra_params': 'TrustServerCertificate=yes;',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mssql',
+#         'NAME': 'meeting',
+#         'USER': '',
+#         'PASSWORD': '',
+#         'HOST': 'CODE',  # O la dirección IP del servidor SQL
+#         'PORT': '',       # Puerto por defecto para SQL Server
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 17 for SQL Server',  
+#             'extra_params': 'TrustServerCertificate=yes;',
+#         },
+#     }
+# }
 
 # BASE DE DATO post
 # DATABASES = {
