@@ -14,6 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+print("🛣️ [urls.py] Iniciando urlpatterns para GPS project")
+
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -22,9 +24,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 from users.api.router import router_user
-from codeqr.api.router import router_codeqr
-from points.api.router import router_point
-from pays.api.router import router_pay
+from meetings.api.router import router_meeting
 
 
 schema_view = get_schema_view(
@@ -33,7 +33,7 @@ schema_view = get_schema_view(
       default_version='v1',
       description="GPS lOCATION",
       terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="gelionz_gps@gmai.com"),
+      contact=openapi.Contact(email="gelionznova@gmail.com"),
       license=openapi.License(name="BSD License"),
    ),
    public=True,
@@ -48,10 +48,8 @@ urlpatterns = [
     ),
     path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
     path("api/", include("users.api.router")),
-    path("api/", include(router_user.urls)),
-    path("api/", include(router_codeqr.urls)),
-    path("api/", include(router_point.urls)),
-    path("api/", include(router_pay.urls)),
+    path("api/", include(router_user.urls)), 
+    path("api/", include(router_meeting.urls)),  
    
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

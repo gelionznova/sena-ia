@@ -6,13 +6,13 @@ from datetime import timedelta
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'tu_valor_predeterminado')
-# DEBUG = True
+DEBUG = True
 
 # deploy
-DEBUG = False
+# DEBUG = False
 
-# ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
-ALLOWED_HOSTS = ["gpsdjango-61ff97537fca.herokuapp.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+# ALLOWED_HOSTS = ["gpsdjango-61ff97537fca.herokuapp.com"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -27,9 +27,7 @@ INSTALLED_APPS = [
     "django_filters",
     "psycopg2",    
     "users",
-    "codeqr",
-    "points",
-    "pays",
+    "meetings",
 ]
 
 MIDDLEWARE = [
@@ -65,10 +63,25 @@ TEMPLATES = [
 WSGI_APPLICATION = 'gps.wsgi.application'
 
 # BASE DE DATO SQLITE
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'meeting',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'CODE',  # O la dirección IP del servidor SQL
+        'PORT': '',       # Puerto por defecto para SQL Server
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',  
+            'extra_params': 'TrustServerCertificate=yes;',
+        },
     }
 }
 
@@ -140,3 +153,18 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DYNOSCALE_URL = "https://dynoscale.net/api/v1/report/mgmxzjaznwutntzimc00m"
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "INFO",
+    },
+}
+
