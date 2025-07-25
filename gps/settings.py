@@ -1,17 +1,15 @@
 import os
 import datetime
+import dj_database_url
 from pathlib import Path
 from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'tu_valor_predeterminado')
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
-# deploy
-# DEBUG = False
-
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 # ALLOWED_HOSTS = ["gpsdjango-61ff97537fca.herokuapp.com"]
 
 INSTALLED_APPS = [
@@ -25,7 +23,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     "corsheaders",
     "django_filters",
-    "psycopg2",    
+    # "psycopg2",    
     "users",
     "meetings",
 ]
@@ -62,13 +60,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gps.wsgi.application'
 
-# BASE DE DATO SQLITE
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
+
+# BASE DE DATO SQLITE
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
